@@ -1,4 +1,4 @@
-variable "security_group_id" {}
+# variable "security_group_id" {}
 #
 # data "aws_security_group" "lb_sg" {
 #   vpc_id = var.security_group_id
