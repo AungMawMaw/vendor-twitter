@@ -33,7 +33,7 @@ data "aws_iam_policy_document" "twitter_service_access" {
     ]
     resources = [
       "arn:aws:sqs: ${var.aws_region}:${local.account_id}:${var.sqs_que_name}",
-      "arn:aws:dynamodb:${var.var.aws_region}:${local.account_id}:table/${var.dynamo_vendor_table_name}"
+      "arn:aws:dynamodb:${var.aws_region}:${local.account_id}:table/${var.dynamo_vendor_table_name}"
     ]
   }
 }
