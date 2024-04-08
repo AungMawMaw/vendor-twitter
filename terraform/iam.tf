@@ -10,7 +10,7 @@ data "aws_iam_policy_document" "assume_role_policy" {
 }
 
 resource "aws_iam_role" "ecstasksexecutionrole" {
-  name               = "${var.app_name}-ecs-tasks-execution-role"
+  name               = "${var.app_name}-ecs-tasks-execution-role-v2"
   assume_role_policy = data.aws_iam_policy_document.assume_role_policy.json
 }
 
