@@ -26,9 +26,9 @@ resource "aws_security_group" "ecs_sg" {
 
 }
 
-data "aws_s3_bucket_object" "secrets" {
-  bucket = var.esc_twitter_env_secret_folder
+data "aws_s3_object" "secrets" {
   key    = var.esc_twitter_env_secret_key
+  bucket = var.esc_twitter_env_secret_folder
 }
 
 resource "aws_ecs_task_definition" "td" {
@@ -39,7 +39,7 @@ resource "aws_ecs_task_definition" "td" {
       "name": "${var.app_name}-td",
       "image": "${local.account_id}.dkr.ecr.us-east-1.amazonaws.com/twitter:${var.image_tag}",
       "entryPoint": [],
-      "environment": ${data.aws_s3_bucket_object.secrets.body},
+      "environment": ${data.aws_s3_object.secrets.body},
       "essential": true,
       "logConfiguration": {
         "logDriver": "awslogs",
