@@ -10,7 +10,7 @@ COPY . .
 
 RUN tsc
 
-CMD ['npm','start']
+CMD ["npm","start"]
 
 EXPOSE 80
 
