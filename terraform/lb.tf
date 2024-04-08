@@ -33,12 +33,8 @@ resource "aws_alb" "alb" {
   name               = "${var.app_name}-alb"
   internal           = false
   load_balancer_type = "application"
-  # subnets = [aws_subnet.public_1.id,aws_subnet.public_2.id]
-  subnets = [aws_subnet.public_1.id]
-
-  # subnets            = aws_public_subnet_ids
-  # subnets         = aws_subnet.public_1.id
-  security_groups = [aws_security_group.lb_sg.id]
+  subnets            = [aws_subnet.public_1.id, aws_subnet.public_2.id]
+  security_groups    = [aws_security_group.lb_sg.id]
 }
 
 resource "aws_alb_target_group" "alb_tg" {

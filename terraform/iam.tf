@@ -23,12 +23,11 @@ resource "aws_iam_role_policy_attachment" "ec2_policy" {
 # policy 2
 data "aws_iam_policy_document" "twitter_service_access" {
   statement {
-    # sid = "1"
     effect = "Allow"
     actions = [
       "dynamodb:DescribeTable",
       "dynamodb:Scan",
-      "dynamodb:UpdateTable",
+      "dynamodb:UpdateItem",
       "sqs:*"
     ]
     resources = [
