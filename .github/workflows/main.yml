@@ -40,8 +40,8 @@ jobs:
         env:
           AWS_IMAGE_TAG: ${{github.sha}} #commit id on git => ka=> tag identifier
         run: |
-          docker build -t ${{steps.ecr.outputs.repository-uri}}::$AWS_IMAGE_TAG .
-          docker push ${{steps.ecr.outputs.repository-uri}}::$AWS_IMAGE_TAG
+          docker build -t ${{steps.ecr.outputs.repository-uri}}:$AWS_IMAGE_TAG .
+          docker push ${{steps.ecr.outputs.repository-uri}}:$AWS_IMAGE_TAG
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
