@@ -11,7 +11,7 @@
 #   cidr_block = "10.0.1.0/24"
 # }
 resource "aws_security_group" "lb_sg" {
-  name   = "${var.app_name}-lb_sg"
+  name   = "${var.app_name}-lb-sg"
   vpc_id = aws_vpc.vpc.id
 
   ingress {
@@ -33,8 +33,11 @@ resource "aws_alb" "alb" {
   name               = "${var.app_name}-alb"
   internal           = false
   load_balancer_type = "application"
+  # subnets = [aws_subnet.public_1.id,aws_subnet.public_2.id]
+  subnets = [aws_subnet.public_1.id]
+
   # subnets            = aws_public_subnet_ids
-  subnets         = aws_subnet.public_1.id
+  # subnets         = aws_subnet.public_1.id
   security_groups = [aws_security_group.lb_sg.id]
 }
 
