@@ -1,0 +1,29 @@
+{
+  "name": "vendor-twitter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/AungMawMaw/vendor-twitter.git",
+  "author": "AungMawMaw <aungmaw.bc@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "tsc && node \"build/index.js\""
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.540.0",
+    "@aws-sdk/client-sqs": "^3.540.0",
+    "@aws-sdk/util-dynamodb": "^3.540.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.1",
+    "needle": "^3.3.1"
+  },
+  "devDependencies": {
+    "@aws-sdk/types": "^3.535.0",
+    "@types/express": "^4.17.21",
+    "@types/needle": "^3.3.0",
+    "@types/node": "^20.11.30",
+    "@typescript-eslint/eslint-plugin": "^7.5.0",
+    "@typescript-eslint/parser": "^7.5.0",
+    "eslint": "^9.0.0",
+    "typescript": "^5.4.3"
+  }
+}
