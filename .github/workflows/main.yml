@@ -31,7 +31,7 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v2
 
       - name: Build repository
-        uses: int128/create-ecr-login@v1
+        uses: int128/create-ecr-repository-action@v1
         id: ecr
         with:
           repository: twitter #name of repo
