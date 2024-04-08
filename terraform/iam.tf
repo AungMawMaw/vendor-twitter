@@ -1,4 +1,15 @@
 ## NOTE: role - tasks execution role
+
+# data "aws_iam_policy_document" "assume_role_policy" {
+#   statement {
+#     actions = ["sts:assumerole"]
+#     principals {
+#       type        = "service"
+#       identifiers = ["ecs-tasks.amazonaws.com"]
+#     }
+#   }
+# }
+
 data "aws_iam_policy_document" "assume_role_policy" {
   statement {
     actions = ["sts:assumerole"]
@@ -10,7 +21,7 @@ data "aws_iam_policy_document" "assume_role_policy" {
 }
 
 resource "aws_iam_role" "ecstasksexecutionrole" {
-  name               = "${var.app_name}-ecs-tasks-execution-role-v2"
+  name               = "${var.app_name}-ecs-tasks-execution-role"
   assume_role_policy = data.aws_iam_policy_document.assume_role_policy.json
 }
 
