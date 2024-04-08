@@ -51,8 +51,7 @@ variable "availability_zones" {
 
 variable "esc_twitter_env_secret_key" { #env ko store
   description = "Secret key file"
-  default     = "${var.app_name}/esc_env_vars.json"
-
+  default     = "vendor-twitter/esc_env_vars.json"
 }
 
 variable "esc_twitter_env_secret_folder" { # s3name
