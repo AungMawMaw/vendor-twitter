@@ -7,7 +7,7 @@ variable "aws_region" {
 variable "app_name" {
   type        = string
   description = "name of app"
-  default     = "vendor-twitter-proj1"
+  default     = "vendor-twitter"
 }
 
 variable "public_subnets" {
@@ -51,13 +51,13 @@ variable "availability_zones" {
 
 variable "esc_twitter_env_secret_key" { #env ko store
   description = "Secret key file"
-  default     = "esc_env_vars.json"
+  default     = "${var.app_name}/esc_env_vars.json"
 
 }
 
 variable "esc_twitter_env_secret_folder" { # s3name
   description = "Secret s3 folder "
-  default     = "vendor-twitter-secrets"
+  default     = "cybercat-public-s3"
 }
 
 variable "dynamo_vendor_table_name" {

@@ -93,7 +93,7 @@ resource "aws_ecs_service" "ecs" {
   }
 
   load_balancer {
-    target_group_arn = aws_lb_target_group.target_group.arn
+    target_group_arn = aws_alb_target_group.alb_tg.arn
     container_name   = "${var.app_name}-td"
     container_port   = 80
   }
