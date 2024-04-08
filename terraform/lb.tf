@@ -14,14 +14,14 @@ resource "aws_security_group" "lb_sg" {
   name   = "${var.app_name}-lb_sg"
   vpc_id = aws_vpc.vpc.id
 
-  ingress = {
+  ingress {
     from_port       = 80
     to_port         = 80
     protocol        = "tcp"
     cidr_block      = ["0.0.0.0/0"]
     ipv5_cidr_block = ["::/0"]
   }
-  egress = {
+  egress {
     from_port       = 0
     to_port         = 0
     protocol        = "-1" #NOTE: mean all protocol

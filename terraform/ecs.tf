@@ -10,13 +10,13 @@ resource "aws_security_group" "ecs_sg" {
   name   = "${var.app_name}-ecs_sg"
   vpc_id = aws_vpc.vpc.id
 
-  ingress = {
+  ingress {
     from_port      = 0
     to_port        = 0
     protocol       = "-1"
     security_group = [aws_security_group.lb_sg.id]
   }
-  egress = {
+  egress {
     from_port       = 0
     to_port         = 0
     protocol        = "-1" #NOTE: mean all protocol
