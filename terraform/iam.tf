@@ -18,7 +18,7 @@ resource "aws_iam_role" "ecstasksexecutionrole" {
 # policy 1 for ec2
 resource "aws_iam_role_policy_attachment" "ec2_policy" {
   role       = aws_iam_role.ecstasksexecutionrole.name
-  policy_arn = "arn:aws:iam::aws:policy/service-role/amazonec2containerserviceforec2role"
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role"
 }
 
 data "aws_iam_policy_document" "twitter_service_access" {
