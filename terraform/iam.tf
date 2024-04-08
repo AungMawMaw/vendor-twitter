@@ -1,20 +1,10 @@
 ## NOTE: role - tasks execution role
 
-# data "aws_iam_policy_document" "assume_role_policy" {
-#   statement {
-#     actions = ["sts:assumerole"]
-#     principals {
-#       type        = "service"
-#       identifiers = ["ecs-tasks.amazonaws.com"]
-#     }
-#   }
-# }
-
 data "aws_iam_policy_document" "assume_role_policy" {
   statement {
-    actions = ["sts:assumerole"]
+    actions = ["sts:AssumeRole"]
     principals {
-      type        = "service"
+      type        = "Service"
       identifiers = ["ecs-tasks.amazonaws.com"]
     }
   }
@@ -31,21 +21,6 @@ resource "aws_iam_role_policy_attachment" "ec2_policy" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/amazonec2containerserviceforec2role"
 }
 
-# policy 2
-# data "aws_iam_policy_document" "twitter_service_access" { statement {
-#     effect = "allow"
-#     actions = [
-#       "dynamodb:describetable",
-#       "dynamodb:scan",
-#       "dynamodb:updateitem",
-#       "sqs:*"
-#     ]
-#     resources = [
-#       "arn:aws:sqs: ${var.aws_region}:${local.account_id}:${var.sqs_que_name}",
-#       "arn:aws:dynamodb:${var.aws_region}:${local.account_id}:table/${var.dynamo_vendor_table_name}"
-#     ]
-#   }
-# }
 data "aws_iam_policy_document" "twitter_service_access" {
   statement {
     effect = "Allow"
