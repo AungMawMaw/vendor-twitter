@@ -56,7 +56,6 @@ variable "esc_twitter_env_secret_key" { #env ko store
 }
 
 variable "esc_twitter_env_secret_folder" { # s3name
-  type        = string
   description = "Secret s3 folder "
   default     = "vendor-twitter-secrets"
 }

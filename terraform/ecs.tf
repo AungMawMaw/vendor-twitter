@@ -11,17 +11,17 @@ resource "aws_security_group" "ecs_sg" {
   vpc_id = aws_vpc.vpc.id
 
   ingress {
-    from_port      = 0
-    to_port        = 0
-    protocol       = "-1"
+    from_port       = 0
+    to_port         = 0
+    protocol        = "-1"
     security_groups = [aws_security_group.lb_sg.id]
   }
   egress {
-    from_port       = 0
-    to_port         = 0
-    protocol        = "-1" #NOTE: mean all protocol
-    cidr_blocks =       = ["0.0.0.0/0"]
-    ipv6_cidr_blocks =  = ["::/0"]
+    from_port        = 0
+    to_port          = 0
+    protocol         = "-1" #NOTE: mean all protocol
+    cidr_blocks      = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
   }
 
 }
