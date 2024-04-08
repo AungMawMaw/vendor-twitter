@@ -66,8 +66,8 @@ resource "aws_ecs_task_definition" "td" {
   network_mode             = "awsvpc"
   memory                   = "1024"
   cpu                      = "256"
-  execution_role_arn       = aws_iam_role.ecsTaskExecutionRole.arn
-  task_role_arn            = aws_iam_role.ecsTaskExecutionRole.arn
+  execution_role_arn       = aws_iam_role.ecsTasksExecutionRole.arn
+  task_role_arn            = aws_iam_role.ecsTasksExecutionRole.arn
 }
 
 data "aws_ecs_task_definition" "td" {
